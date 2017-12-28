@@ -1,0 +1,1679 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>magnetis</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#accounts" class="toc-h1 toc-link" data-title="Accounts">Accounts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-chrome" class="toc-h1 toc-link" data-title="Accounts/chrome">Accounts/chrome</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-2" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-kpi" class="toc-h1 toc-link" data-title="/ACCOUNTS/KPI">/ACCOUNTS/KPI</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-3" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-2" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-callbyday" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/CALLBYDAY">/ACCOUNTS/{IDACC}/CALLBYDAY</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-4" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-3" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-callbymonth" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/CALLBYMONTH">/ACCOUNTS/{IDACC}/CALLBYMONTH</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-5" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-4" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-callbymonthbynumber" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/CALLBYMONTHBYNUMBER">/ACCOUNTS/{IDACC}/CALLBYMONTHBYNUMBER</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-6" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-5" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-callgeofrance" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/CALLGEOFRANCE">/ACCOUNTS/{IDACC}/CALLGEOFRANCE</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-7" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-6" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-numbers" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/NUMBERS">/ACCOUNTS/{IDACC}/NUMBERS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-post-em-strong" class="toc-h2 toc-link" data-title="<strong><em>POST</em></strong>"><strong><em>POST</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-7" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-numbers-getlist" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/NUMBERS/GETLIST">/ACCOUNTS/{IDACC}/NUMBERS/GETLIST</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-8" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-8" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-numbers-phonenumber-calls" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/CALLS">/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/CALLS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-9" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-9" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-numbers-phonenumber-destination" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/DESTINATION">/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/DESTINATION</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-post-em-strong-2" class="toc-h2 toc-link" data-title="<strong><em>POST</em></strong>"><strong><em>POST</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-10" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-numbers-phonenumber-kpi" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/KPI">/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/KPI</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-10" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-11" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-recipients" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/RECIPIENTS">/ACCOUNTS/{IDACC}/RECIPIENTS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-11" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-post-em-strong-3" class="toc-h2 toc-link" data-title="<strong><em>POST</em></strong>"><strong><em>POST</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-12" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-recipients-recipientnumber" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}">/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-options-em-strong-13" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-recipients-recipientnumber-trackednumber" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}/TRACKEDNUMBER">/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}/TRACKEDNUMBER</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-12" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-14" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts-idacc-search" class="toc-h1 toc-link" data-title="/ACCOUNTS/{IDACC}/SEARCH">/ACCOUNTS/{IDACC}/SEARCH</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-13" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+                  <li>
+                    <a href="#strong-em-options-em-strong-15" class="toc-h2 toc-link" data-title="<strong><em>OPTIONS</em></strong>"><strong><em>OPTIONS</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#test" class="toc-h1 toc-link" data-title="/TEST">/TEST</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#strong-em-get-em-strong-14" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/lavkumarv'>Documentation Powered by lav</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p><strong>Version:</strong> 2017-12-27T12:54:05Z </p>
+<h1 id='authentication'>Authentication</h1>
+<table><thead>
+<tr>
+<th>apiKey</th>
+<th><em>API Key</em></th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h1 id='accounts'>Accounts</h1><h2 id='strong-em-get-em-strong'><strong><em>GET</em></strong></h2><h3 id='http-request'>HTTP Request</h3>
+<p><code>***GET*** /accounts</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+<tr>
+<td>400</td>
+<td>400 response</td>
+</tr>
+<tr>
+<td>401</td>
+<td>401 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-chrome'>Accounts/chrome</h1><h2 id='strong-em-get-em-strong-2'><strong><em>GET</em></strong></h2><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>***GET*** /accounts/chrome</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/chrome</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-kpi'>/ACCOUNTS/KPI</h1><h2 id='strong-em-get-em-strong-3'><strong><em>GET</em></strong></h2><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>***GET*** /accounts/kpi</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DateTo</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateFrom</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-2'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/kpi</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-callbyday'>/ACCOUNTS/{IDACC}/CALLBYDAY</h1><h2 id='strong-em-get-em-strong-4'><strong><em>GET</em></strong></h2><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/callbyday</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateTo</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateFrom</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-3'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/callbyday</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-callbymonth'>/ACCOUNTS/{IDACC}/CALLBYMONTH</h1><h2 id='strong-em-get-em-strong-5'><strong><em>GET</em></strong></h2><h3 id='http-request-8'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/callbymonth</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MonthBack</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-4'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-9'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/callbymonth</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-callbymonthbynumber'>/ACCOUNTS/{IDACC}/CALLBYMONTHBYNUMBER</h1><h2 id='strong-em-get-em-strong-6'><strong><em>GET</em></strong></h2><h3 id='http-request-10'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/callbymonthbynumber</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MonthBack</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-5'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-11'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/callbymonthbynumber</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-callgeofrance'>/ACCOUNTS/{IDACC}/CALLGEOFRANCE</h1><h2 id='strong-em-get-em-strong-7'><strong><em>GET</em></strong></h2><h3 id='http-request-12'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/callgeofrance</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateTo</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateFrom</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-6'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-13'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/callgeofrance</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-numbers'>/ACCOUNTS/{IDACC}/NUMBERS</h1><h2 id='strong-em-post-em-strong'><strong><em>POST</em></strong></h2><h3 id='http-request-14'>HTTP Request</h3>
+<p><code>***POST*** /accounts/{idacc}/numbers</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>areacode</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>recipientphonenumber</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>country</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>numbersAddPost</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-7'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-15'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/numbers</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-numbers-getlist'>/ACCOUNTS/{IDACC}/NUMBERS/GETLIST</h1><h2 id='strong-em-get-em-strong-8'><strong><em>GET</em></strong></h2><h3 id='http-request-16'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/numbers/getlist</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-8'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-17'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/numbers/getlist</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-numbers-phonenumber-calls'>/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/CALLS</h1><h2 id='strong-em-get-em-strong-9'><strong><em>GET</em></strong></h2><h3 id='http-request-18'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/numbers/{phonenumber}/calls</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateTo</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateFrom</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>phonenumber</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-9'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-19'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/numbers/{phonenumber}/calls</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-numbers-phonenumber-destination'>/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/DESTINATION</h1><h2 id='strong-em-post-em-strong-2'><strong><em>POST</em></strong></h2><h3 id='http-request-20'>HTTP Request</h3>
+<p><code>***POST*** /accounts/{idacc}/numbers/{phonenumber}/destination</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>recipientphonenumber</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>phonenumber</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-10'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-21'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/numbers/{phonenumber}/destination</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-numbers-phonenumber-kpi'>/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/KPI</h1><h2 id='strong-em-get-em-strong-10'><strong><em>GET</em></strong></h2><h3 id='http-request-22'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/numbers/{phonenumber}/kpi</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateTo</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateFrom</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>phonenumber</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-11'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-23'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/numbers/{phonenumber}/kpi</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-recipients'>/ACCOUNTS/{IDACC}/RECIPIENTS</h1><h2 id='strong-em-get-em-strong-11'><strong><em>GET</em></strong></h2><h3 id='http-request-24'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/recipients</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-post-em-strong-3'><strong><em>POST</em></strong></h2><h3 id='http-request-25'>HTTP Request</h3>
+<p><code>***POST*** /accounts/{idacc}/recipients</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>phonenumber</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-12'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-26'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/recipients</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-recipients-recipientnumber'>/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}</h1><h2 id='strong-em-options-em-strong-13'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-27'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/recipients/{recipientnumber}</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-recipients-recipientnumber-trackednumber'>/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}/TRACKEDNUMBER</h1><h2 id='strong-em-get-em-strong-12'><strong><em>GET</em></strong></h2><h3 id='http-request-28'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/recipients/{recipientnumber}/trackednumber</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>recipientnumber</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-14'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-29'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/recipients/{recipientnumber}/trackednumber</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='accounts-idacc-search'>/ACCOUNTS/{IDACC}/SEARCH</h1><h2 id='strong-em-get-em-strong-13'><strong><em>GET</em></strong></h2><h3 id='http-request-30'>HTTP Request</h3>
+<p><code>***GET*** /accounts/{idacc}/search</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idacc</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateTo</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>DateFrom</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>callingNumber</td>
+<td>query</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h2 id='strong-em-options-em-strong-15'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-31'>HTTP Request</h3>
+<p><code>***OPTIONS*** /accounts/{idacc}/search</code> </p>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+<h1 id='test'>/TEST</h1><h2 id='strong-em-get-em-strong-14'><strong><em>GET</em></strong></h2><h3 id='http-request-32'>HTTP Request</h3>
+<p><code>***GET*** /test</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>x-api-key</td>
+<td>header</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>200 response</td>
+</tr>
+</tbody></table>
+
+<!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
+<h1 id='errors'>Errors</h1>
+<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request sucks.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

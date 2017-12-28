@@ -1,0 +1,547 @@
+--- 
+
+title: magnetis 
+
+language_tabs: 
+   - shell 
+
+toc_footers: 
+   - <a href='#'>Sign Up for a Developer Key</a> 
+   - <a href='https://github.com/lavkumarv'>Documentation Powered by lav</a> 
+
+includes: 
+   - errors 
+
+search: true 
+
+--- 
+
+# Introduction 
+
+**Version:** 2017-12-27T12:54:05Z 
+
+# Authentication 
+
+|apiKey|*API Key*|
+|---|---| 
+
+# Accounts
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+| 400 | 400 response |
+| 401 | 401 response |
+
+# Accounts/chrome
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/chrome` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/chrome` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/KPI
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/kpi` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| DateTo | query |  | No | string |
+| DateFrom | query |  | No | string |
+| limit | query |  | No | string |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/kpi` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/CALLBYDAY
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/callbyday` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| DateTo | query |  | No | string |
+| DateFrom | query |  | No | string |
+| limit | query |  | No | string |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/callbyday` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/CALLBYMONTH
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/callbymonth` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| MonthBack | query |  | No | string |
+| idacc | path |  | Yes | string |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/callbymonth` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/CALLBYMONTHBYNUMBER
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/callbymonthbynumber` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| MonthBack | query |  | No | string |
+| idacc | path |  | Yes | string |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/callbymonthbynumber` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/CALLGEOFRANCE
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/callgeofrance` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| DateTo | query |  | No | string |
+| DateFrom | query |  | No | string |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/callgeofrance` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/NUMBERS
+## ***POST*** 
+
+### HTTP Request 
+`***POST*** /accounts/{idacc}/numbers` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| areacode | query |  | No | string |
+| x-api-key | header |  | No | string |
+| name | query |  | No | string |
+| recipientphonenumber | query |  | No | string |
+| country | query |  | No | string |
+| numbersAddPost | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/numbers` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/NUMBERS/GETLIST
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/numbers/getlist` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/numbers/getlist` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/CALLS
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/numbers/{phonenumber}/calls` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| DateTo | query |  | No | string |
+| DateFrom | query |  | No | string |
+| limit | query |  | No | string |
+| x-api-key | header |  | No | string |
+| phonenumber | path |  | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/numbers/{phonenumber}/calls` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/DESTINATION
+## ***POST*** 
+
+### HTTP Request 
+`***POST*** /accounts/{idacc}/numbers/{phonenumber}/destination` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| x-api-key | header |  | No | string |
+| name | query |  | No | string |
+| recipientphonenumber | query |  | No | string |
+| phonenumber | path |  | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/numbers/{phonenumber}/destination` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/KPI
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/numbers/{phonenumber}/kpi` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| DateTo | query |  | No | string |
+| DateFrom | query |  | No | string |
+| limit | query |  | No | string |
+| x-api-key | header |  | No | string |
+| phonenumber | path |  | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/numbers/{phonenumber}/kpi` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/RECIPIENTS
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/recipients` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***POST*** 
+
+### HTTP Request 
+`***POST*** /accounts/{idacc}/recipients` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| phonenumber | query |  | No | string |
+| x-api-key | header |  | No | string |
+| name | query |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/recipients` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/recipients/{recipientnumber}` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}/TRACKEDNUMBER
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/recipients/{recipientnumber}/trackednumber` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| recipientnumber | path |  | Yes | string |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/recipients/{recipientnumber}/trackednumber` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /ACCOUNTS/{IDACC}/SEARCH
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /accounts/{idacc}/search` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idacc | path |  | Yes | string |
+| DateTo | query |  | No | string |
+| DateFrom | query |  | No | string |
+| limit | query |  | No | string |
+| x-api-key | header |  | No | string |
+| callingNumber | query |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+## ***OPTIONS*** 
+
+### HTTP Request 
+`***OPTIONS*** /accounts/{idacc}/search` 
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+# /TEST
+## ***GET*** 
+
+### HTTP Request 
+`***GET*** /test` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| x-api-key | header |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | 200 response |
+
+<!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
