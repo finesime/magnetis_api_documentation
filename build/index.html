@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;php&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,9 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="php">PHP</a>
+              <a href="#" data-language-name="javascript">JavaScript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -222,10 +224,7 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#accounts" class="toc-h1 toc-link" data-title="Accounts">Accounts</a>
+            <a href="#accounts" class="toc-h1 toc-link" data-title="/ACCOUNTS">/ACCOUNTS</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#strong-em-get-em-strong" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
@@ -233,7 +232,7 @@
               </ul>
           </li>
           <li>
-            <a href="#accounts-chrome" class="toc-h1 toc-link" data-title="Accounts/chrome">Accounts/chrome</a>
+            <a href="#accounts-chrome" class="toc-h1 toc-link" data-title="/ACCOUNTS/CHROME">/ACCOUNTS/CHROME</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#strong-em-get-em-strong-2" class="toc-h2 toc-link" data-title="<strong><em>GET</em></strong>"><strong><em>GET</em></strong></a>
@@ -418,16 +417,77 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p><strong>Version:</strong> 2017-12-27T12:54:05Z </p>
-<h1 id='authentication'>Authentication</h1>
-<table><thead>
-<tr>
-<th>apiKey</th>
-<th><em>API Key</em></th>
-</tr>
-</thead><tbody>
-</tbody></table>
-<h1 id='accounts'>Accounts</h1><h2 id='strong-em-get-em-strong'><strong><em>GET</em></strong></h2><h3 id='http-request'>HTTP Request</h3>
+<p><strong>API - Magnetis</strong></p>
+
+<p><strong>Endpoint URL:</strong> https://www.magnetis-in.com/v1/</p>
+
+<p><strong>Version:</strong> v1</p>
+
+<p>See more at <a href="https://www.magnetis.fr/console/support/api/">Magnetis API Support</a></p>
+
+<p>Contact the <a href="mailto:support@magnetis.fr?subject=API-Magnetis">developer</a> here.</p>
+<h1 id='accounts'>/ACCOUNTS</h1><h2 id='strong-em-get-em-strong'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To Authorize and request account information, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"idacc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>***GET*** /accounts</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -471,7 +531,7 @@
 <td>401 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-chrome'>Accounts/chrome</h1><h2 id='strong-em-get-em-strong-2'><strong><em>GET</em></strong></h2><h3 id='http-request-2'>HTTP Request</h3>
+<h1 id='accounts-chrome'>/ACCOUNTS/CHROME</h1><h2 id='strong-em-get-em-strong-2'><strong><em>GET</em></strong></h2><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>***GET*** /accounts/chrome</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -523,7 +583,67 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-kpi'>/ACCOUNTS/KPI</h1><h2 id='strong-em-get-em-strong-3'><strong><em>GET</em></strong></h2><h3 id='http-request-4'>HTTP Request</h3>
+<h1 id='accounts-kpi'>/ACCOUNTS/KPI</h1><h2 id='strong-em-get-em-strong-3'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To Authorize and retrieve account kpi, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/kpi 
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/kpi",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/kpi"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"idacc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"call"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lost"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>***GET*** /accounts/kpi</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -596,7 +716,73 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-callbyday'>/ACCOUNTS/{IDACC}/CALLBYDAY</h1><h2 id='strong-em-get-em-strong-4'><strong><em>GET</em></strong></h2><h3 id='http-request-6'>HTTP Request</h3>
+<h1 id='accounts-idacc-callbyday'>/ACCOUNTS/{IDACC}/CALLBYDAY</h1><h2 id='strong-em-get-em-strong-4'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To Authorize and retrieve calls by day, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/callbyday
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/callbyday",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/callbyday"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"jour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numeros"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"idnumber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"numnumero"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supportnumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"NBCALL"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"TIMECALL"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/callbyday</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -676,7 +862,68 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-callbymonth'>/ACCOUNTS/{IDACC}/CALLBYMONTH</h1><h2 id='strong-em-get-em-strong-5'><strong><em>GET</em></strong></h2><h3 id='http-request-8'>HTTP Request</h3>
+<h1 id='accounts-idacc-callbymonth'>/ACCOUNTS/{IDACC}/CALLBYMONTH</h1><h2 id='strong-em-get-em-strong-5'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To authorize and retrieve calls by month, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/callbymonth
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/callbymonth",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/callbymonth"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"datekey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"month"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"NBCALL"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TIMECALL"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-8'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/callbymonth</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -742,7 +989,75 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-callbymonthbynumber'>/ACCOUNTS/{IDACC}/CALLBYMONTHBYNUMBER</h1><h2 id='strong-em-get-em-strong-6'><strong><em>GET</em></strong></h2><h3 id='http-request-10'>HTTP Request</h3>
+<h1 id='accounts-idacc-callbymonthbynumber'>/ACCOUNTS/{IDACC}/CALLBYMONTHBYNUMBER</h1><h2 id='strong-em-get-em-strong-6'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To Authorize and retrieve calls by month, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/callbymonthbynumber
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/callbymonthbynumber",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/callbymonthbynumber"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"datekey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"month"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numeros"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"idnumber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"numnumero"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supportnumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"NBCALL"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"TIMECALL"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-10'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/callbymonthbynumber</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -808,7 +1123,65 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-callgeofrance'>/ACCOUNTS/{IDACC}/CALLGEOFRANCE</h1><h2 id='strong-em-get-em-strong-7'><strong><em>GET</em></strong></h2><h3 id='http-request-12'>HTTP Request</h3>
+<h1 id='accounts-idacc-callgeofrance'>/ACCOUNTS/{IDACC}/CALLGEOFRANCE</h1><h2 id='strong-em-get-em-strong-7'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To access and get calls with area-code, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/callgeofrance
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/callgeofrance",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/callgeofrance"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"frenchareacode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"call"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-12'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/callgeofrance</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -881,7 +1254,66 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-numbers'>/ACCOUNTS/{IDACC}/NUMBERS</h1><h2 id='strong-em-post-em-strong'><strong><em>POST</em></strong></h2><h3 id='http-request-14'>HTTP Request</h3>
+<h1 id='accounts-idacc-numbers'>/ACCOUNTS/{IDACC}/NUMBERS</h1><h2 id='strong-em-post-em-strong'><strong><em>POST</em></strong></h2>
+<blockquote>
+<p>To access and add a tracked number to account, use this code </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/numbers
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/numbers",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "POST",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/numbers"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"recipientphonenumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"recipientname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-14'>HTTP Request</h3>
 <p><code>***POST*** /accounts/{idacc}/numbers</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -975,7 +1407,79 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-numbers-getlist'>/ACCOUNTS/{IDACC}/NUMBERS/GETLIST</h1><h2 id='strong-em-get-em-strong-8'><strong><em>GET</em></strong></h2><h3 id='http-request-16'>HTTP Request</h3>
+<h1 id='accounts-idacc-numbers-getlist'>/ACCOUNTS/{IDACC}/NUMBERS/GETLIST</h1><h2 id='strong-em-get-em-strong-8'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To access available numbers list, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/numbers/getlist
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/numbers/getlist",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/numbers/getlist"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"phonenumber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supportnumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"formatInternational"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"formatNational"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"paysNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"typeNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"destinataire"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"teldestinataire"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nomdestinataire"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"formatInternational"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"formatNational"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"paysNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"typeNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-16'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/numbers/getlist</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1034,7 +1538,73 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-numbers-phonenumber-calls'>/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/CALLS</h1><h2 id='strong-em-get-em-strong-9'><strong><em>GET</em></strong></h2><h3 id='http-request-18'>HTTP Request</h3>
+<h1 id='accounts-idacc-numbers-phonenumber-calls'>/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/CALLS</h1><h2 id='strong-em-get-em-strong-9'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To access and get calls of particular tracked number, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/numbers/<span class="o">{</span>phonenumber<span class="o">}</span>/calls
+  -H <span class="s1">'cache-control: no-cache'</span> 
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/numbers/{phonenumber}/calls",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/numbers/{phonenumber}/calls"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"idcall"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"datecall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"heurecall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestampcall"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"callingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"calledNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supportNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="err">number</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"typeNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"paysNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-18'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/numbers/{phonenumber}/calls</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1121,7 +1691,67 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-numbers-phonenumber-destination'>/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/DESTINATION</h1><h2 id='strong-em-post-em-strong-2'><strong><em>POST</em></strong></h2><h3 id='http-request-20'>HTTP Request</h3>
+<h1 id='accounts-idacc-numbers-phonenumber-destination'>/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/DESTINATION</h1><h2 id='strong-em-post-em-strong-2'><strong><em>POST</em></strong></h2>
+<blockquote>
+<p>To access and get calls of particular tracked number, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/numbers/<span class="o">{</span>phonenumber<span class="o">}</span>/destination
+  -H <span class="s1">'cache-control: no-cache'</span> 
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/numbers/{phonenumber}/destination",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "POST",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/numbers/{phonenumber}/destination"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_recipientphonenumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_recipientname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"new_recipientphonenumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"new_recipientname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-20'>HTTP Request</h3>
 <p><code>***POST*** /accounts/{idacc}/numbers/{phonenumber}/destination</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1201,7 +1831,67 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-numbers-phonenumber-kpi'>/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/KPI</h1><h2 id='strong-em-get-em-strong-10'><strong><em>GET</em></strong></h2><h3 id='http-request-22'>HTTP Request</h3>
+<h1 id='accounts-idacc-numbers-phonenumber-kpi'>/ACCOUNTS/{IDACC}/NUMBERS/{PHONENUMBER}/KPI</h1><h2 id='strong-em-get-em-strong-10'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To access and get kpi of a phone number, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/1/numbers/0033185088892/kpi
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/numbers/{phonenumber}/kpi",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/numbers/{phonenumber}/kpi"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"phonenumber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"call"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lost"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-22'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/numbers/{phonenumber}/kpi</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1288,7 +1978,67 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-recipients'>/ACCOUNTS/{IDACC}/RECIPIENTS</h1><h2 id='strong-em-get-em-strong-11'><strong><em>GET</em></strong></h2><h3 id='http-request-24'>HTTP Request</h3>
+<h1 id='accounts-idacc-recipients'>/ACCOUNTS/{IDACC}/RECIPIENTS</h1><h2 id='strong-em-get-em-strong-11'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To access and get recipients of an account, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/recipients
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/recipients",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/recipients"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+    <span class="s2">"cache-control"</span><span class="p">:</span> <span class="s2">"no-cache"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"recipientphonenumber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"idrecipient"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recipientphonenumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-24'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/recipients</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1331,7 +2081,66 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h2 id='strong-em-post-em-strong-3'><strong><em>POST</em></strong></h2><h3 id='http-request-25'>HTTP Request</h3>
+<h2 id='strong-em-post-em-strong-3'><strong><em>POST</em></strong></h2>
+<blockquote>
+<p>To access and add a recipient for an account, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/recipients
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/recipients",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "POST",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/recipients"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"recipientphonenumber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"idrecipient"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recipientphonenumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-25'>HTTP Request</h3>
 <p><code>***POST*** /accounts/{idacc}/recipients</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1404,7 +2213,53 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-recipients-recipientnumber'>/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}</h1><h2 id='strong-em-options-em-strong-13'><strong><em>OPTIONS</em></strong></h2><h3 id='http-request-27'>HTTP Request</h3>
+<h1 id='accounts-idacc-recipients-recipientnumber'>/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}</h1><h2 id='strong-em-options-em-strong-13'><strong><em>OPTIONS</em></strong></h2>
+<blockquote>
+<p>To access and get details of recipient number, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/recipients/<span class="o">{</span>recipientnumber<span class="o">}</span>
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/recipients/{recipientnumber}",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/recipients/{recipientnumber}"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><h3 id='http-request-27'>HTTP Request</h3>
 <p><code>***OPTIONS*** /accounts/{idacc}/recipients/{recipientnumber}</code> </p>
 
 <p><strong>Responses</strong></p>
@@ -1420,7 +2275,53 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-recipients-recipientnumber-trackednumber'>/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}/TRACKEDNUMBER</h1><h2 id='strong-em-get-em-strong-12'><strong><em>GET</em></strong></h2><h3 id='http-request-28'>HTTP Request</h3>
+<h1 id='accounts-idacc-recipients-recipientnumber-trackednumber'>/ACCOUNTS/{IDACC}/RECIPIENTS/{RECIPIENTNUMBER}/TRACKEDNUMBER</h1><h2 id='strong-em-get-em-strong-12'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To access and get tracked number of recipient, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/recipients/<span class="o">{</span>recipientnumber<span class="o">}</span>/trackednumber
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/recipients/{recipientnumber}/trackednumber",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/recipients/{recipientnumber}/trackednumber"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><h3 id='http-request-28'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/recipients/{recipientnumber}/trackednumber</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1486,7 +2387,72 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-<h1 id='accounts-idacc-search'>/ACCOUNTS/{IDACC}/SEARCH</h1><h2 id='strong-em-get-em-strong-13'><strong><em>GET</em></strong></h2><h3 id='http-request-30'>HTTP Request</h3>
+<h1 id='accounts-idacc-search'>/ACCOUNTS/{IDACC}/SEARCH</h1><h2 id='strong-em-get-em-strong-13'><strong><em>GET</em></strong></h2>
+<blockquote>
+<p>To access and get tracked number of recipient, use this code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://www.magnetis-in.com/v1/accounts/<span class="o">{</span>idacc<span class="o">}</span>/search
+  -H <span class="s1">'cache-control: no-cache'</span>
+  -H <span class="s1">'x-api-key: your-magnetis-api-key'</span>
+</code></pre><pre class="highlight php tab-php"><code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL =&gt; "https://www.magnetis-in.com/v1/accounts/{idacc}/search",
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_ENCODING =&gt; "",
+  CURLOPT_MAXREDIRS =&gt; 10,
+  CURLOPT_TIMEOUT =&gt; 30,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; "GET",
+  CURLOPT_HTTPHEADER =&gt; array(
+    "cache-control: no-cache",
+    "x-api-key: your-magnetis-api-key"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.magnetis-in.com/v1/accounts/{idacc}/search"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"your-magnetis-api-key"</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"idcall"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"datecall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"heurecall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestampcall"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"callingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"calledNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supportNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"typeNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"paysNumero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-30'>HTTP Request</h3>
 <p><code>***GET*** /accounts/{idacc}/search</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1609,8 +2575,6 @@
 <td>200 response</td>
 </tr>
 </tbody></table>
-
-<!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
 <h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
@@ -1671,7 +2635,9 @@
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="php">PHP</a>
+                <a href="#" data-language-name="javascript">JavaScript</a>
           </div>
       </div>
     </div>
